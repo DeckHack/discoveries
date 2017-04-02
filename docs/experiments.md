@@ -1,10 +1,8 @@
 # Experiments
 
-Experiments are another way to toggle features in the TweetDeck source code. They are either entirely hardcoded 
-or pulled from the TweetDeck API. Recent ones seem to be hardcoded.
+Experiments are another way to toggle features in the TweetDeck source code. They are either entirely hardcoded or pulled from the TweetDeck API. Recent ones seem to be hardcoded.
 
-It seems that experiments might be pre-staged deciders, the experiment keys include IDs at the end, so these
-might be internal issues/PRs.
+Experiments could have been "prototypes" of what became [deciders](./deciders.md), each experiment key has an ID at the end, these could might internal issues/PR numbers.
 
 ## Location
 
@@ -25,8 +23,7 @@ Here are all experiments in the source code as of writing (1.4.2017)
 
 ## Overriding Experiments
 
-This is a bit tricky, as (for whatever reason) you always have to supply all experiments on overriding them, if you don't, 
-all other experiments that are already set will be gone.
+This is a bit tricky, for whatever reason you have to pass all experiments at once when overriding one of them, if you don't do that, all other experiments will be gone.
 
 You can set a experiment the following way:
 
@@ -40,11 +37,8 @@ TD.controller.stats.setExperiments({
 });
 ```
 
-You can unset an experiment by supplying everything that is not the value from the above table. If you only set one experiment,
-all others will default to `""`. So if you want to get sure that only this one feature you want to change is changed, you
-also have to supply all other experiments and their default values.
+You can disable an experiment by passing an object with all the experiments but the one you want to disable. If you don't pass everything, all non-supplied experiments will have their value set to `''`, be warned!.
 
 ## Notice
 
-As for every feature toggle, you have to do this as soon as `TD` gets available, so templates are not broken or other side effects
-may occur. Some of the experiments might work if changed later on.
+As for every feature toggle, you have to do this as soon as `TD` gets available, so templates are not broken or other side effects may occur. Some of the experiments might work if changed later on.

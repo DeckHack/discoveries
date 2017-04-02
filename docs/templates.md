@@ -6,8 +6,8 @@ TweetDeck is using [mustaches](https://github.com/janl/mustache.js) as a templat
 
 TweetDeck templates are located in following objects:
 
-* `window.TD_mustaches`
-* `window.TD.mustaches` (this probably just mirrors from the above one)
+* `window.TD.mustaches`
+* `window.TD_mustaches` (is an exact copy of the first one)
 
 These objects include all templates and you can access their contents with simply calling their keys:
 
@@ -31,5 +31,4 @@ TD_mustaches[...] = TD_mustaches[...].replace("</div>", "</div> new template")
 
 ## Notice
 
-Templates should be overwritten as soon as ´TD_mustaches` is defined, as you can end up mixing
-things together if the template you are changing is streamed or often changed content.
+Templates should be overwritten as soon as `TD_mustaches` is available, modifying templates while they are in use can led to unexpected results.

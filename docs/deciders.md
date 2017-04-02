@@ -1,16 +1,31 @@
 # Deciders
 
-Deciders are switches inside the TweetDeck code to enable/disable features for testing or in the end production stages.
+Deciders are flags to enable/disable specific features inside TweetDeck. Said features are usually near production-ready.
 
 ## Location
 
-You can get all deciders using `TD.decider.getAll()`
+You can get all deciders using `TD.decider.getAll()`.
 
-The returned object includes all deciders as keys and their status as boolean value.
+The returned object includes all deciders as keys and their status as boolean value. Like this
+
+```js
+{
+  "abuse_emergency_filter_info": true,
+  "account_settings_join_team_flow": true,
+  "account_settings_redesign": true,
+  "action_favorited_retweet": true,
+  /* ... more keys ... */
+  "windows_migration_logged_in_2": true,
+  "windows_migration_logged_out_2": true,
+  "windows_migration_warning_2": true,
+}
+```
 
 ## Override
 
-A snippet to override deciders provided by [@NO_BOOT_DEVICE](https://twitter.com/NO_BOOT_DEVICE)
+You can override deciders in several ways.
+
+The first one, courtesy of [@NO_BOOT_DEVICE](https://twitter.com/NO_BOOT_DEVICE), consists of wrapping one of `TD.decider` methods to specifically modify specific keys when getting the deciders from TweetDeck's backend.
 
 ```js
 window.decider_override = {
@@ -27,7 +42,7 @@ TD.decider.updateFromBackend = _.wrap(TD.decider.updateFromBackend, (function(fu
 TD.decider.updateForGuestId();
 ```
 
-Another, simpler way to change deciders is creating a `TD.config.decider_overlay` with the deciders that should be changed
+The other, simpler, uses the `decider_overlay` in `TD.config` (probably used for debugging purposes).
 
 ```js
 TD.config.decider_overlay = {
@@ -39,4 +54,4 @@ TD.config.decider_overlay = {
 
 ## Notice
 
-To prevent broken templates (or no changes at all), the deciders should be changed as soon as the `TD` object becomes available.
+To avoid any issues (broke templates/features), the deciders should be changed as soon as `TD` is defined.
