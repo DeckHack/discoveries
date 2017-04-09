@@ -423,4 +423,3 @@ $(document).trigger("dataSettings",
   }
 )
 ```
-```
