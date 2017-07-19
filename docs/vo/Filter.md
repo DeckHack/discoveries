@@ -98,7 +98,7 @@ Matches `text` against `value` of the filter
 * `num` Number
 
 **Description:**  
-Matches `num` against `value of the filter, or if `num` is in `range` (if specified)
+Matches `num` against `value` of the filter, or if `num` is in `range` (if specified)
 
 ### _\_testBoolean_
 
