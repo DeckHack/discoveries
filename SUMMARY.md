@@ -18,5 +18,6 @@
 * [Event List](./docs/events-list.md)
 * [Experiments](./docs/experiments.md)
 * [globalRenderOptions](./docs/globalRenderOptions.md)
+* [Modules](./docs/modules.md)
 * [Settings](./docs/settings.md)
 * [Templates](./docs/templates.md)
