@@ -12,6 +12,9 @@
 * Models
   * [Filter](./docs/vo/Filter.md)
 ---
+* Services
+  * [ChirpBase](./docs/services/ChirpBase.md)
+---
 * [Assets](./docs/assets.md)
 * [Deciders](./docs/deciders.md)
 * [Events](./docs/events.md)
